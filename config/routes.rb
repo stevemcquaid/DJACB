@@ -1,4 +1,13 @@
 Djacb::Application.routes.draw do
+  resources :ratings
+
+
+  resources :comments
+
+
+  resources :songs
+
+
   authenticated :user do
     root :to => 'home#index'
   end

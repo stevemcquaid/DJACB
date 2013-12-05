@@ -8,6 +8,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @comments = @user.comments.recent
+    @ratings = @user.ratings.recent
+    @songs = @user.songs.recent
   end
   
   def update

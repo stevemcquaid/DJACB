@@ -1,4 +1,13 @@
-<h3>Home</h3>
-<% @users.each do |user| %>
-  <p>User: <%=link_to user.name, user %></p>
+
+<div class="jumbotron">
+	<div class="container">
+  <h1>DJ Charts</h1>
+  <p>Your anonymous source for DJ music. Built by DJs for DJs.</p>
+  <p><a class="btn btn-primary btn-lg" role="button">Look around and Sign Up</a></p>
+  </div>
+</div>
+
+<h2>Recently Posted Songs: </h2>
+<% @recent_songs.each do |song| %>
+  <p><%=link_to song.title + " :: " + song.artist, song %></p>
 <% end %>

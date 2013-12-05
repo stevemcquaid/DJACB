@@ -3,18 +3,27 @@ ruby '1.9.3'
 gem 'rails', '3.2.13'
 gem 'sqlite3'
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
+  #gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
+  gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+  gem "therubyracer"
 end
+gem "twitter-bootstrap-rails"
 gem 'jquery-rails'
-gem 'bootstrap-sass', '~> 2.3.2.2'
+#gem 'bootstrap-sass', '~> 2.3.2.2'
 gem 'cancan'
 gem 'devise'
 gem 'figaro'
 gem 'rolify'
 gem 'simple_form'
+
+gem 'will_paginate'
+
+gem 'ci_reporter'
+
 group :development do
+  
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
   gem 'quiet_assets'
@@ -22,7 +31,11 @@ group :development do
 end
 group :development, :test do
   gem 'factory_girl_rails'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 3.0.0.beta'
+
+  # for Travis and CI
+  gem 'simplecov', :require => false #code coverage
+  gem 'simplecov-rcov', :require => false #code coverage
 end
 group :test do
   gem 'capybara'
@@ -30,4 +43,13 @@ group :test do
   gem 'database_cleaner', '1.0.1'
   gem 'email_spec'
   gem 'launchy'
+
+  gem 'minitest-spec-rails'
+  gem 'minitest-wscolor'
+
+  gem 'shoulda'
+  gem 'shoulda-matchers'
+
+  # Pretty test Output
+  gem 'turn', :require => false # Pretty printed test output
 end
