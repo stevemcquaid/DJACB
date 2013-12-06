@@ -10,6 +10,7 @@
       <th>Avg Rating</th>
       <th>User</th>
       <th># Comments</th>
+      <th># Ratings</th>
     
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -22,6 +23,7 @@
         <td><%= song.avg_rating %></td>
         <td><%= link_to song.user.name, user_path(song.user) %></td>
         <td><%= song.comments.size %></td>
+        <td><%= song.ratings.size %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_song_path(song), :class => 'btn btn-mini' %>

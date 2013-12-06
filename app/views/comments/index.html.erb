@@ -5,10 +5,10 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:comment) %></th>
+      <th>Comment</th>
       <th>Song</th>
-      <th>User</th>
-      <th>Date</th>
+      <th>Author</th>
+      <th>Posted On</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -16,9 +16,9 @@
     <% @comments.each do |comment| %>
       <tr>
         <td><%= link_to comment.comment, comment_path(comment) %></td>
-        <td><%= comment.song.title %></td>
+        <td><%= link_to comment.song.title, song_path(comment.song) %></td>
         <td><%= link_to comment.user.name, user_path(comment.user) %></td>
-        <td><%= comment.created_at %></td>
+        <td><%= comment.date %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_comment_path(comment), :class => 'btn btn-mini' %>

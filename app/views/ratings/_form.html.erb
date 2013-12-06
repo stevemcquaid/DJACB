@@ -1,6 +1,6 @@
-<%= simple_form_for @rating, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :rating %>
-  <%= f.input :song, collection: @songs, as: :grouped_select, group_method: :title %>
+<%= form_for @rating, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.number_field :rating %>
+  <%= f.collection_select :song, @songs, :id ,:title %>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

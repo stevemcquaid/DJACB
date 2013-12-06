@@ -5,22 +5,20 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:rating) %></th>
-      <th><%= model_class.human_attribute_name(:song_id) %></th>
-      <th><%= model_class.human_attribute_name(:user_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th>Rating</th>
+      <th>Song</th>
+      <th>Rated by:</th>
+      <th>Date Rated</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @ratings.each do |rating| %>
       <tr>
-        <td><%= link_to rating.id, rating_path(rating) %></td>
-        <td><%= rating.rating %></td>
-        <td><%= rating.song_id %></td>
-        <td><%= rating.user_id %></td>
-        <td><%=l rating.created_at %></td>
+        <td><%= link_to rating.rating, rating_path(rating) %></td>
+        <td><%= link_to rating.song.formatted_name, song_path(rating.song) %></td>
+        <td><%= link_to rating.user.name, user_path(rating.user) %></td>
+        <td><%= rating.date %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_rating_path(rating), :class => 'btn btn-mini' %>

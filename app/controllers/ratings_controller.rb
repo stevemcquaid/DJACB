@@ -35,6 +35,7 @@ class RatingsController < ApplicationController
   # GET /ratings/1/edit
   def edit
     @rating = Rating.find(params[:id])
+    @songs = Song.all
   end
 
   # POST /ratings

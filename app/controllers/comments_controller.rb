@@ -35,6 +35,7 @@ class CommentsController < ApplicationController
   # GET /comments/1/edit
   def edit
     @comment = Comment.find(params[:id])
+    @songs = Song.all
   end
 
   # POST /comments

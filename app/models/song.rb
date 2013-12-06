@@ -15,4 +15,8 @@ class Song < ActiveRecord::Base
   	theRatings = self.ratings
   	theRatings.collect(&:rating).sum.to_f/theRatings.length if theRatings.length > 0
   end
+
+  def formatted_name
+    self.title + " :: " + self.artist
+  end
 end

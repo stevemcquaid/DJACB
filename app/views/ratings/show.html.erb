@@ -4,12 +4,12 @@
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:rating) %>:</strong></dt>
+  <dt><strong>Rating:</strong></dt>
   <dd><%= @rating.rating %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:song_id) %>:</strong></dt>
-  <dd><%= @rating.song_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
-  <dd><%= @rating.user_id %></dd>
+  <dt><strong>Song:</strong></dt>
+  <dd><%= @rating.song.formatted_name %></dd>
+  <dt><strong>Rating By:</strong></dt>
+  <dd><%= @rating.user.name %></dd>
 </dl>
 
 <div class="form-actions">
